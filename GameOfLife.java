@@ -10,9 +10,9 @@ public class GameOfLife {
 	public static void main(String[] args) {
 		String fileName = args[0];
 		//test1(fileName);
-		//// test2(fileName);
+		test2(fileName);
 		//// test3(fileName, 3);
-		play(fileName);
+		///play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -106,21 +106,6 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
-		/*if (board[i][j] == 1) { // alive cells of neighbours
-			switch (count(board, i, j)) {
-				case 0, 1: 
-					return 0;
-				case 2, 3:
-					return 1;
-				default:
-					return 0;
-			}
-			else if (count(board, i, j) == 3) { // dead cells of neighbours
-				return 1;
-			}
-			return 0;
-		}
-		*/
 		//// Replace the following statement with your code.
 		int aliveNeighbors = count(board, i, j);
 		int currentValue = board[i][j];
