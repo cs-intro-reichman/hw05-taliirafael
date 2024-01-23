@@ -9,11 +9,10 @@ public class GameOfLife {
 
 	public static void main(String[] args) {
 		String fileName = args[0];
-		test1(fileName);
+		//test1(fileName);
 		//// test2(fileName);
 		//// test3(fileName, 3);
-		///play(fileName);
-		///System.out.println(test1(fileName));
+		play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -27,7 +26,7 @@ public class GameOfLife {
 	private static void test2(String fileName) {
 		int[][] board = read(fileName);
 		for (int i = 1; i < board.length - 1; i++) {
-			for (int j = 1; j < board[0].length - 1; i++) {
+			for (int j = 1; j < board[0].length - 1; j++) {
 				System.out.println(count(board, i, j) + " " + (cellValue(board, i, j) == 1 ? "alive" : "dead"));
 			}
 		}
@@ -67,7 +66,7 @@ public class GameOfLife {
 		int[][] board = new int[rows + 2][cols + 2];
 		//// Replace the following statement with your code.
 		String row = "";
-		for (int i = 1; i < rows + 1; i++) {
+		for (int i = 1; i < board.length - 1; i++) {
 			row = in.readLine();
 			int length = row.length();
 			for (int j = 1; j < cols + 1; j++) {
@@ -107,7 +106,7 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
-		if (board[i][j] == 1) { // alive cells of neighbours
+		/*if (board[i][j] == 1) { // alive cells of neighbours
 			switch (count(board, i, j)) {
 				case 0, 1: 
 					return 0;
@@ -121,8 +120,9 @@ public class GameOfLife {
 			}
 			return 0;
 		}
+		*/
 		//// Replace the following statement with your code.
-		/*int aliveNeighbors = count(board, i, j);
+		int aliveNeighbors = count(board, i, j);
 		int currentValue = board[i][j];
 
 		if (currentValue == 1) {
@@ -138,7 +138,7 @@ public class GameOfLife {
 				return 0; // Dead cell with other than 3 live neighbors remains dead.
 			}
 		}
-		*/
+		
 	}
 	
 	// Counts and returns the number of living neighbors of the given cell
