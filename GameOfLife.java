@@ -107,8 +107,22 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
+		if (board[i][j] == 1) { // alive cells of neighbours
+			switch (count(board, i, j)) {
+				case 0, 1: 
+					return 0;
+				case 2, 3:
+					return 1;
+				default:
+					return 0;
+			}
+			else if (count(board, i, j) == 3) { // dead cells of neighbours
+				return 1;
+			}
+			return 0;
+		}
 		//// Replace the following statement with your code.
-		int aliveNeighbors = count(board, i, j);
+		/*int aliveNeighbors = count(board, i, j);
 		int currentValue = board[i][j];
 
 		if (currentValue == 1) {
@@ -124,6 +138,7 @@ public class GameOfLife {
 				return 0; // Dead cell with other than 3 live neighbors remains dead.
 			}
 		}
+		*/
 	}
 	
 	// Counts and returns the number of living neighbors of the given cell
