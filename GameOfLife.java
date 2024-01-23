@@ -5,14 +5,14 @@
  *  The file format is described in the homework document.
  */
 
-public class GameOfLife {
+ public class GameOfLife {
 
 	public static void main(String[] args) {
 		String fileName = args[0];
 		//test1(fileName);
-		test2(fileName);
+		//test2(fileName);
 		//// test3(fileName, 3);
-		///play(fileName);
+		play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -66,7 +66,7 @@ public class GameOfLife {
 		int[][] board = new int[rows + 2][cols + 2];
 		//// Replace the following statement with your code.
 		String row = "";
-		for (int i = 1; i < board.length - 1; i++) {
+		for (int i = 1; i < rows + 1; i++) {
 			row = in.readLine();
 			int length = row.length();
 			for (int j = 1; j < cols + 1; j++) {
